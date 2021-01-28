@@ -1,5 +1,10 @@
 <template>
   <section>
+    <div
+      v-if="$route.query.message"
+      class="alert alert-danger mb-3">
+      Need to login first
+    </div>
     <form @submit.prevent="onLoginSubmit">
       <h1>Login page</h1>
       <div class="form-group">
@@ -20,7 +25,12 @@ export default {
   methods: {
     onLoginSubmit() {
       this.$store.dispatch('login')
-      this.$router.push('/')
+      console.log(this.$route.query.path)
+      if (this.$route.query.path) {
+        this.$router.push(this.$route.query.path)
+      } else {
+        this.$router.push('/')
+      }
     }
   }
 }
@@ -29,6 +39,7 @@ export default {
 <style scoped>
 section {
 }
+
 form {
   max-width: 500px;
   margin: 0 auto;
