@@ -6,7 +6,7 @@
         v-for="user of 5"
         :key="user"
       >
-        User {{ user }}
+        <a href="#" @click.prevent="openUser(user)">User {{ user }}</a>
       </li>
     </ul>
   </section>
@@ -14,7 +14,12 @@
 
 <script>
 export default {
-  name: "index"
+  name: "index",
+  methods: {
+    openUser(user) {
+      this.$router.push('/users/' + user)
+    }
+  }
 }
 </script>
 
