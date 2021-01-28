@@ -25,7 +25,6 @@ export default {
   methods: {
     onLoginSubmit() {
       this.$store.dispatch('login')
-      console.log(this.$route.query.path)
       if (this.$route.query.path) {
         this.$router.push(this.$route.query.path)
       } else {
