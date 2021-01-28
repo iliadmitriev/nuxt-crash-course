@@ -18,7 +18,8 @@ export default {
   async asyncData({$axios, params}) {
     const user = await $axios.$get('https://jsonplaceholder.typicode.com/users/' + params.id)
     return {user}
-  }
+  },
+  middleware: ['auth']
 }
 </script>
 
