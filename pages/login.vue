@@ -25,7 +25,12 @@ export default {
   methods: {
     onLoginSubmit() {
       this.$store.dispatch('login')
-      this.$router.push('/')
+      console.log(this.$route.query.path)
+      if (this.$route.query.path) {
+        this.$router.push(this.$route.query.path)
+      } else {
+        this.$router.push('/')
+      }
     }
   }
 }
@@ -34,6 +39,7 @@ export default {
 <style scoped>
 section {
 }
+
 form {
   max-width: 500px;
   margin: 0 auto;
