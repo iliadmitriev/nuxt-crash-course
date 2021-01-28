@@ -37,6 +37,7 @@ export default {
       await store.dispatch('users/fetch')
     }
   },
+  middleware: ['auth']
 }
 </script>
 
