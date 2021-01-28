@@ -21,19 +21,22 @@
 export default {
   name: "index",
   data: ()=> ({
-    users: []
   }),
   methods: {
     openUser(user) {
       this.$router.push('/users/' + user)
     }
   },
-  async asyncData({$axios}) {
-    const users = await $axios.$get('https://jsonplaceholder.typicode.com/users')
-    return {users}
+  computed: {
+    users() {
+      return this.$store.getters["users/users"]
+    }
   },
-  async mounted() {
-  }
+  async fetch({store}) {
+    if (store.getters["users/users"].length === 0) {
+      await store.dispatch('users/fetch')
+    }
+  },
 }
 </script>
 
