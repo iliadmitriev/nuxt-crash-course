@@ -28,10 +28,19 @@
             <nuxt-link
               class="nav-link" to="/users"
               active-class="active"
-              exact
               no-prefetch
             >
               Users
+            </nuxt-link>
+          </li>
+          <li class="nav-item">
+            <nuxt-link
+              class="nav-link" to="/login"
+              active-class="active"
+              exact
+              no-prefetch
+            >
+              Login
             </nuxt-link>
           </li>
         </ul>
